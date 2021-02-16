@@ -1,0 +1,5 @@
+
+docker build . -t growlithe/ark-server-mod-restart:latest
+docker push growlithe/ark-server-mod-restart:latest
+
+docker build . -t growlithe/ark-server-mod-restart:latest && docker push growlithe/ark-server-mod-restart:latest

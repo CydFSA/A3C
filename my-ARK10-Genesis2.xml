@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ARK10-Genesis2</Name>
+  <Repository>ich777/steamcmd:arkse</Repository>
+  <Registry>https://hub.docker.com/r/ich777/steamcmd/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/</Support>
+  <Project>https://survivetheark.com/</Project>
+  <Overview>This Docker will download and install SteamCMD. It will also install ARK:SurvivalEvolved and run it (Normal server startup of ARK can take a long time!).&#xD;
+&#xD;
+ATTENTION: First Startup can take very long since it downloads the gameserver files!&#xD;
+&#xD;
+Update Notice: Simply restart the container if a newer version of the game is available.&#xD;
+&#xD;
+You can also run multiple servers with only one SteamCMD directory!</Overview>
+  <Category>GameServers:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/arkse.png</Icon>
+  <ExtraParams>--restart=unless-stopped </ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1613444996</DateInstalled>
+  <DonateText>If you like my work please </DonateText>
+  <DonateLink>https://www.paypal.me/chips777</DonateLink>
+  <Description>This Docker will download and install SteamCMD. It will also install ARK:SurvivalEvolved and run it (Normal server startup of ARK can take a long time!).&#xD;
+&#xD;
+ATTENTION: First Startup can take very long since it downloads the gameserver files!&#xD;
+&#xD;
+Update Notice: Simply restart the container if a newer version of the game is available.&#xD;
+&#xD;
+You can also run multiple servers with only one SteamCMD directory!</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>7795</HostPort>
+        <ContainerPort>7795</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>7796</HostPort>
+        <ContainerPort>7796</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>27024</HostPort>
+        <ContainerPort>27024</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>27034</HostPort>
+        <ContainerPort>27034</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/steamcmd</HostDir>
+      <ContainerDir>/serverdata/steamcmd</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/ark-se</HostDir>
+      <ContainerDir>/serverdata/serverfiles</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/ark-se/ARK10-Genesis2</HostDir>
+      <ContainerDir>/serverdata/serverfiles/ShooterGame/Saved</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>376030</Value>
+      <Name>GAME_ID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>VALIDATE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>PASSWRD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>TheIsland</Value>
+      <Name>MAP</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>Your-DangerIsland</Value>
+      <Name>SERVER_NAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>SRV_PWD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>NotMyPassword</Value>
+      <Name>SRV_ADMIN_PWD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>?Port=7795?QueryPort=27024?MaxPlayers=10?RCONEnabled=True?RCONPort=27034?CustomDynamicConfigUrl="http://172.17.0.2/dynamicconfig.ini"</Value>
+      <Name>GAME_PARAMS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>-server -log -clusterid=YourCluster -ClusterDirOverride=/serverdata/serverfiles/clusterfiles -UseDynamicConfig</Value>
+      <Name>GAME_PARAMS_EXTRA</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>UID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>GID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="SteamCMD" Target="/serverdata/steamcmd" Default="" Mode="rw" Description="Container Path: /serverdata/steamcmd" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/steamcmd</Config>
+  <Config Name="ServerFiles" Target="/serverdata/serverfiles" Default="" Mode="rw" Description="Container Path: /serverdata/serverfiles" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/ark-se</Config>
+  <Config Name="GAME_ID" Target="GAME_ID" Default="" Mode="" Description="The GAME_ID that the container download at startup.&#13;&#10;(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)" Type="Variable" Display="always" Required="true" Mask="false">376030</Config>
+  <Config Name="Steam-Username" Target="USERNAME" Default="" Mode="" Description="Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard)." Type="Variable" Display="always-hide" Required="false" Mask="false"/>
+  <Config Name="Validate Installation" Target="VALIDATE" Default="" Mode="" Description="Set the Variable to 'true' if you want to validate the installation otherwise leave it blank." Type="Variable" Display="always-hide" Required="false" Mask="false"/>
+  <Config Name="Steam-Password" Target="PASSWRD" Default="" Mode="" Description="Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard)." Type="Variable" Display="always-hide" Required="false" Mask="true"/>
+  <Config Name="Map" Target="MAP" Default="TheIsland" Mode="" Description="Container Variable: MAP" Type="Variable" Display="always-hide" Required="true" Mask="false">TheIsland</Config>
+  <Config Name="Server Name" Target="SERVER_NAME" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">Your-DangerIsland</Config>
+  <Config Name="Server Password" Target="SRV_PWD" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false"/>
+  <Config Name="Server Admin Password" Target="SRV_ADMIN_PWD" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">NotMyPassword</Config>
+  <Config Name="Game Parameters" Target="GAME_PARAMS" Default="" Mode="" Description="Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)" Type="Variable" Display="always-hide" Required="false" Mask="false">?Port=7795?QueryPort=27024?MaxPlayers=10?RCONEnabled=True?RCONPort=27034?CustomDynamicConfigUrl="http://172.17.0.2/dynamicconfig.ini"</Config>
+  <Config Name="Extra Game Parameters" Target="GAME_PARAMS_EXTRA" Default="" Mode="" Description="Type in your Extra Game Parameters seperated with a space and - (eg: -DisableDeathSpectator -UseBattlEye)" Type="Variable" Display="always-hide" Required="true" Mask="false">-server -log -clusterid=YourCluster -ClusterDirOverride=/serverdata/serverfiles/clusterfiles -UseDynamicConfig</Config>
+  <Config Name="UDP 1" Target="7795" Default="" Mode="udp" Description="Container Port: 7795" Type="Port" Display="always" Required="false" Mask="false">7795</Config>
+  <Config Name="UDP 2" Target="7796" Default="" Mode="udp" Description="Container Port: 7796" Type="Port" Display="always" Required="false" Mask="false">7796</Config>
+  <Config Name="UDPSteam" Target="27024" Default="" Mode="udp" Description="Container Port: 27024" Type="Port" Display="always" Required="false" Mask="false">27024</Config>
+  <Config Name="TCPRCON" Target="27034" Default="" Mode="tcp" Description="Container Port: 27034" Type="Port" Display="always" Required="false" Mask="false">27034</Config>
+  <Config Name="Saved" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="container Path: /serverdata/serverfiles/ShooterGame/Saved a segregated space for saving arks and map specific config inis" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se/ARK10-Genesis2</Config>
+  <Config Name="UID" Target="UID" Default="" Mode="" Description="Container Variable: UID" Type="Variable" Display="advanced-hide" Required="true" Mask="false">99</Config>
+  <Config Name="GID" Target="GID" Default="" Mode="" Description="Container Variable: GID" Type="Variable" Display="advanced-hide" Required="true" Mask="false">100</Config>
+</Container>

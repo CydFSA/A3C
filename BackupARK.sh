@@ -1,6 +1,6 @@
 #!/bin/bash
 DATE=$(date +%d-%m-%Y)
-BACKUP_DIR="/serverdata/serverfiles/dynamicconfig/backup"
+BACKUP_DIR="/serverdata/backup"
 BACKUP_DAYS=`cat /serverdata/serverfiles/dynamicconfig/BackupDays.txt`
 #To create a new directory in the backup directory location
 mkdir -p $BACKUP_DIR/$DATE

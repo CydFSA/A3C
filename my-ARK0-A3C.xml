@@ -44,7 +44,7 @@
     </Volume>
     <Volume>
       <HostDir>/mnt/user/backup</HostDir>
-      <ContainerDir>/serverdata/serverfiles/dynamicconfig/backup</ContainerDir>
+      <ContainerDir>/serverdata/backup</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -83,6 +83,6 @@
   <Config Name="RCON ports" Target="MCRCON_PORTS" Default="" Mode="" Description="Container Variable: RCON_PORTS" Type="Variable" Display="always" Required="false" Mask="false">27025,27026,27027,27028,27029,27030,27031,27032,27033,27034</Config>
   <Config Name="Container Names" Target="CONTAINER_NAMES" Default="" Mode="" Description="Container Variable: CONTAINER_NAMES This is also the value(s) that are used to pick directories for backup" Type="Variable" Display="always" Required="false" Mask="false">ARK1-TheIsland,ARK2-ScorchedEarth_P,ARK3-Aberration_P,ARK4-TheCenter,ARK5-Ragnarok,ARK6-Valguero_P,ARK7-CrystalIsles,ARK8-Extinction,ARK9-Genesis,ARK10-Genesis2</Config>
   <Config Name="DCP" Target="80" Default="" Mode="tcp" Description="dynamic config port" Type="Port" Display="always" Required="false" Mask="false">8080</Config>
-  <Config Name="DCFB" Target="/serverdata/serverfiles/dynamicconfig/backup" Default="" Mode="rw" Description="Where to put the backups" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/backup</Config>
+  <Config Name="DCFB" Target="/serverdata/backup" Default="" Mode="rw" Description="Where to put the backups" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/backup</Config>
   <Config Name="Backup Days" Target="BACKUP_DAYS" Default="" Mode="" Description="Number of days to keep backups" Type="Variable" Display="always" Required="false" Mask="false">10</Config>
 </Container>

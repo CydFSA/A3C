@@ -70,7 +70,7 @@ You can also run multiple servers with only one SteamCMD directory!</Description
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/cache/appdata/ark-se/ARK3-Aberration</HostDir>
+      <HostDir>/mnt/cache/appdata/ark-se/ARK3-Aberration_p</HostDir>
       <ContainerDir>/serverdata/serverfiles/ShooterGame/Saved</ContainerDir>
       <Mode>rw</Mode>
     </Volume>

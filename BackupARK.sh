@@ -13,4 +13,4 @@ done
 #To delete files older than 10 days
 find $BACKUP_DIR/* -mtime "+$BACKUP_DAYS" -exec rm {} \;
 #prune empty directoies
-find $BACKUP_DIR/ -type d -exec rmdir {} > /dev/null 2&>1 \;
+find $BACKUP_DIR/ -type d -exec rmdir {} > /dev/null 2>&1 \;

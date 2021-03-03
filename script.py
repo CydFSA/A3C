@@ -88,7 +88,8 @@ def waitForServerActive(name, client):
 
 # if a mod was updated
 def restartTheContainers():
-    # sendToAllServersAndWait("broadcast Mods updated, restarting server in 10 minutes.", 300)
+    sendToAllServersAndWait("broadcast Mods updated, restarting server in 15 minutes.", 300)
+    sendToAllServersAndWait("broadcast Mods updated, restarting server in 10 minutes.", 300)
     sendToAllServersAndWait("broadcast Mods updated, restarting server in 5 minutes.", 60)
     sendToAllServersAndWait("broadcast Mods updated, restarting server in 4 minutes.", 60)
     sendToAllServersAndWait("broadcast Mods updated, restarting server in 3 minutes.", 60)
@@ -199,4 +200,4 @@ while True:
         e = str(sys.exc_info()[0])
         print(f'Failed to check update {e}')
 
-    time.sleep(300)
+    time.sleep(900)

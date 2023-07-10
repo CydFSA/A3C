@@ -14,6 +14,13 @@ if [ ! -f $FILE ];then
 		echo $i >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
 	done
 	echo "dynamicconfig" >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
+else
+        echo -n > /serverdata/serverfiles/dynamicconfig/ARK-list.txt
+        IFS=',' read -ra ADDR <<< "$CONTAINER_NAMES"
+        for i in "${ADDR[@]}"; do
+                echo $i >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
+        done
+        echo  "dynamicconfig" >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
 fi
 FILE=/serverdata/serverfiles/dynamicconfig/BackupARK.sh
 if [ ! -f $FILE ];then

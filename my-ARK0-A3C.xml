@@ -85,4 +85,5 @@
   <Config Name="DCP" Target="80" Default="" Mode="tcp" Description="dynamic config port" Type="Port" Display="always" Required="false" Mask="false">8080</Config>
   <Config Name="DCFB" Target="/serverdata/backup" Default="" Mode="rw" Description="Where to put the backups" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/backup</Config>
   <Config Name="Backup Days" Target="BACKUP_DAYS" Default="" Mode="" Description="Number of days to keep backups" Type="Variable" Display="always" Required="false" Mask="false">10</Config>
+  <Config Name="Dynamicconfig" Target="/dynamicconfig" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se/dynamicconfig</Config>
 </Container>

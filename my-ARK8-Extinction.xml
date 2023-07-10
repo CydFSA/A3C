@@ -52,8 +52,8 @@ You can also run multiple servers with only one SteamCMD directory!</Description
         <Protocol>udp</Protocol>
       </Port>
       <Port>
-        <HostPort>27032</HostPort>
-        <ContainerPort>27032</ContainerPort>
+        <HostPort>27042</HostPort>
+        <ContainerPort>27042</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
@@ -117,7 +117,7 @@ You can also run multiple servers with only one SteamCMD directory!</Description
       <Mode/>
     </Variable>
     <Variable>
-      <Value>?Port=7791?QueryPort=27022?MaxPlayers=10?RCONEnabled=True?RCONPort=27032?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Value>
+      <Value>?Port=7791?QueryPort=27022?MaxPlayers=10?RCONEnabled=True?RCONPort=27042?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Value>
       <Name>GAME_PARAMS</Name>
       <Mode/>
     </Variable>
@@ -148,12 +148,12 @@ You can also run multiple servers with only one SteamCMD directory!</Description
   <Config Name="Server Name" Target="SERVER_NAME" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">Your-Extinction</Config>
   <Config Name="Server Password" Target="SRV_PWD" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false"/>
   <Config Name="Server Admin Password" Target="SRV_ADMIN_PWD" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">NotMyPassword</Config>
-  <Config Name="Game Parameters" Target="GAME_PARAMS" Default="" Mode="" Description="Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)" Type="Variable" Display="always-hide" Required="false" Mask="false">?Port=7791?QueryPort=27022?MaxPlayers=10?RCONEnabled=True?RCONPort=27032?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Config>
+  <Config Name="Game Parameters" Target="GAME_PARAMS" Default="" Mode="" Description="Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)" Type="Variable" Display="always-hide" Required="false" Mask="false">?Port=7791?QueryPort=27022?MaxPlayers=10?RCONEnabled=True?RCONPort=27042?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Config>
   <Config Name="Extra Game Parameters" Target="GAME_PARAMS_EXTRA" Default="" Mode="" Description="Type in your Extra Game Parameters seperated with a space and - (eg: -DisableDeathSpectator -UseBattlEye)" Type="Variable" Display="always-hide" Required="true" Mask="false">-server -log -clusterid=YourCluster -ClusterDirOverride=/serverdata/serverfiles/clusterfiles -UseDynamicConfig</Config>
   <Config Name="UDP 1" Target="7791" Default="" Mode="udp" Description="Container Port: 7791" Type="Port" Display="always" Required="false" Mask="false">7791</Config>
   <Config Name="UDP 2" Target="7792" Default="" Mode="udp" Description="Container Port: 7792" Type="Port" Display="always" Required="false" Mask="false">7792</Config>
   <Config Name="UDPSteam" Target="27022" Default="" Mode="udp" Description="Container Port: 27022" Type="Port" Display="always" Required="false" Mask="false">27022</Config>
-  <Config Name="TCPRCON" Target="27032" Default="" Mode="tcp" Description="Container Port: 27032" Type="Port" Display="always" Required="false" Mask="false">27032</Config>
+  <Config Name="TCPRCON" Target="27042" Default="" Mode="tcp" Description="Container Port: 27042" Type="Port" Display="always" Required="false" Mask="false">27042</Config>
   <Config Name="Saved" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="container Path: /serverdata/serverfiles/ShooterGame/Saved a segregated space for saving arks and map specific config inis" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se/ARK8-Extinction</Config>
   <Config Name="UID" Target="UID" Default="" Mode="" Description="Container Variable: UID" Type="Variable" Display="advanced-hide" Required="true" Mask="false">99</Config>
   <Config Name="GID" Target="GID" Default="" Mode="" Description="Container Variable: GID" Type="Variable" Display="advanced-hide" Required="true" Mask="false">100</Config>

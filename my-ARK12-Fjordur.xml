@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>ARK6-Valguero_P</Name>
+  <Name>ARK12-Fjordur</Name>
   <Repository>ich777/steamcmd:arkse</Repository>
   <Registry>https://hub.docker.com/r/ich777/steamcmd/</Registry>
   <Network>bridge</Network>
   <MyIP/>
-  <Shell>bash</Shell>
+  <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/</Support>
   <Project>https://survivetheark.com/</Project>
@@ -20,10 +20,10 @@ You can also run multiple servers with only one SteamCMD directory!</Overview>
   <WebUI/>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/arkse.png</Icon>
-  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <ExtraParams>--restart=unless-stopped </ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1613444815</DateInstalled>
+  <DateInstalled>1613444660</DateInstalled>
   <DonateText>If you like my work please </DonateText>
   <DonateLink>https://www.paypal.me/chips777</DonateLink>
   <Description>This Docker will download and install SteamCMD. It will also install ARK:SurvivalEvolved and run it (Normal server startup of ARK can take a long time!).&#xD;
@@ -37,23 +37,23 @@ You can also run multiple servers with only one SteamCMD directory!</Description
     <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort>7787</HostPort>
-        <ContainerPort>7787</ContainerPort>
+        <HostPort>7799</HostPort>
+        <ContainerPort>7799</ContainerPort>
         <Protocol>udp</Protocol>
       </Port>
       <Port>
-        <HostPort>7788</HostPort>
-        <ContainerPort>7788</ContainerPort>
+        <HostPort>7800</HostPort>
+        <ContainerPort>7800</ContainerPort>
         <Protocol>udp</Protocol>
       </Port>
       <Port>
-        <HostPort>27020</HostPort>
-        <ContainerPort>27020</ContainerPort>
+        <HostPort>27026</HostPort>
+        <ContainerPort>27026</ContainerPort>
         <Protocol>udp</Protocol>
       </Port>
       <Port>
-        <HostPort>27040</HostPort>
-        <ContainerPort>27040</ContainerPort>
+        <HostPort>27046</HostPort>
+        <ContainerPort>27046</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
@@ -70,12 +70,17 @@ You can also run multiple servers with only one SteamCMD directory!</Description
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/cache/appdata/ark-se/ARK6-Valguero_P</HostDir>
+      <HostDir>/mnt/cache/appdata/ark-se/ARK12-Fjordur</HostDir>
       <ContainerDir>/serverdata/serverfiles/ShooterGame/Saved</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
   <Environment>
+    <Variable>
+      <Value>376030</Value>
+      <Name>GAME_ID</Name>
+      <Mode/>
+    </Variable>
     <Variable>
       <Value/>
       <Name>USERNAME</Name>
@@ -92,12 +97,12 @@ You can also run multiple servers with only one SteamCMD directory!</Description
       <Mode/>
     </Variable>
     <Variable>
-      <Value>Valguero_P</Value>
+      <Value>Fjordur</Value>
       <Name>MAP</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>Your-Valguero</Value>
+      <Value>Your-Fjordur</Value>
       <Name>SERVER_NAME</Name>
       <Mode/>
     </Variable>
@@ -112,12 +117,12 @@ You can also run multiple servers with only one SteamCMD directory!</Description
       <Mode/>
     </Variable>
     <Variable>
-      <Value>?Port=7787?QueryPort=27020?MaxPlayers=10?RCONEnabled=True?RCONPort=27040?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Value>
+      <Value>?Port=7799?QueryPort=27026?MaxPlayers=10?RCONEnabled=True?RCONPort=27046?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Value>
       <Name>GAME_PARAMS</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>-server -log -nowrite -clusterid=YourCluster -ClusterDirOverride=/serverdata/serverfiles/clusterfiles -UseDynamicConfig </Value>
+      <Value>-server -log -clusterid=YourCluster -ClusterDirOverride=/serverdata/serverfiles/clusterfiles -UseDynamicConfig</Value>
       <Name>GAME_PARAMS_EXTRA</Name>
       <Mode/>
     </Variable>
@@ -131,31 +136,25 @@ You can also run multiple servers with only one SteamCMD directory!</Description
       <Name>GID</Name>
       <Mode/>
     </Variable>
-    <Variable>
-      <Value>376030</Value>
-      <Name>GAME_ID</Name>
-      <Mode/>
-    </Variable>
   </Environment>
   <Labels/>
   <Config Name="SteamCMD" Target="/serverdata/steamcmd" Default="" Mode="rw" Description="Container Path: /serverdata/steamcmd" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/steamcmd</Config>
   <Config Name="ServerFiles" Target="/serverdata/serverfiles" Default="" Mode="rw" Description="Container Path: /serverdata/serverfiles" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/ark-se</Config>
+  <Config Name="GAME_ID" Target="GAME_ID" Default="" Mode="" Description="The GAME_ID that the container download at startup.&#13;&#10;(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)" Type="Variable" Display="always" Required="true" Mask="false">376030</Config>
   <Config Name="Steam-Username" Target="USERNAME" Default="" Mode="" Description="Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard)." Type="Variable" Display="always-hide" Required="false" Mask="false"/>
   <Config Name="Validate Installation" Target="VALIDATE" Default="" Mode="" Description="Set the Variable to 'true' if you want to validate the installation otherwise leave it blank." Type="Variable" Display="always-hide" Required="false" Mask="false"/>
   <Config Name="Steam-Password" Target="PASSWRD" Default="" Mode="" Description="Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard)." Type="Variable" Display="always-hide" Required="false" Mask="true"/>
-  <Config Name="Map" Target="MAP" Default="TheIsland" Mode="" Description="Container Variable: MAP" Type="Variable" Display="always-hide" Required="true" Mask="false">Valguero_P</Config>
-  <Config Name="Server Name" Target="SERVER_NAME" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">Your-Valguero</Config>
+  <Config Name="Map" Target="MAP" Default="TheIsland" Mode="" Description="Container Variable: MAP" Type="Variable" Display="always-hide" Required="true" Mask="false">Fjordur</Config>
+  <Config Name="Server Name" Target="SERVER_NAME" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">Your-Fjordur</Config>
   <Config Name="Server Password" Target="SRV_PWD" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false"/>
   <Config Name="Server Admin Password" Target="SRV_ADMIN_PWD" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">NotMyPassword</Config>
-  <Config Name="Game Parameters" Target="GAME_PARAMS" Default="" Mode="" Description="Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)" Type="Variable" Display="always-hide" Required="false" Mask="false">?Port=7787?QueryPort=27020?MaxPlayers=10?RCONEnabled=True?RCONPort=27040?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Config>
-  <Config Name="Extra Game Parameters" Target="GAME_PARAMS_EXTRA" Default="" Mode="" Description="Type in your Extra Game Parameters seperated with a space and - (eg: -DisableDeathSpectator -UseBattlEye)" Type="Variable" Display="always-hide" Required="true" Mask="false">-server -log -nowrite -clusterid=YourCluster -ClusterDirOverride=/serverdata/serverfiles/clusterfiles -UseDynamicConfig </Config>
-  <Config Name="UDP 1" Target="7787" Default="" Mode="udp" Description="Container Port: 7787" Type="Port" Display="always" Required="false" Mask="false">7787</Config>
-  <Config Name="UDP 2" Target="7788" Default="" Mode="udp" Description="Container Port: 7788" Type="Port" Display="always" Required="false" Mask="false">7788</Config>
-  <Config Name="UDPSteam" Target="27020" Default="" Mode="udp" Description="Container Port: 27020" Type="Port" Display="always" Required="false" Mask="false">27020</Config>
-  <Config Name="TCPRCON" Target="27040" Default="" Mode="tcp" Description="Container Port: 27040" Type="Port" Display="always" Required="false" Mask="false">27040</Config>
-  <Config Name="ClusterID" Target="CLUSTERID" Default="" Mode="" Description="Name of the cluster this ARK should be a part of. &#13;&#10; Requires the ClusterFlies host path of all ARKs to be the same so they can pass player files back and forth." Type="Variable" Display="always" Required="false" Mask="false">YourCluster</Config>
-  <Config Name="ARK Save and Configs" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="container Path: /serverdata/serverfiles/ShooterGame/Saved &#13;&#10;A segregated space for separating ARK saves and  config ini's when creating a cluster example: /mnt/cache/appdata/ark-se/ARK1-TheIsland" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se/ARK6-Valguero_P</Config>
+  <Config Name="Game Parameters" Target="GAME_PARAMS" Default="" Mode="" Description="Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)" Type="Variable" Display="always-hide" Required="false" Mask="false">?Port=7799?QueryPort=27026?MaxPlayers=10?RCONEnabled=True?RCONPort=27046?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Config>
+  <Config Name="Extra Game Parameters" Target="GAME_PARAMS_EXTRA" Default="" Mode="" Description="Type in your Extra Game Parameters seperated with a space and - (eg: -DisableDeathSpectator -UseBattlEye)" Type="Variable" Display="always-hide" Required="true" Mask="false">-server -log  -clusterid=YourCluster -ClusterDirOverride=/serverdata/serverfiles/clusterfiles -UseDynamicConfig</Config>
+  <Config Name="UDP 1" Target="7779" Default="" Mode="udp" Description="Container Port: 7799" Type="Port" Display="always" Required="false" Mask="false">7799</Config>
+  <Config Name="UDP 2" Target="7780" Default="" Mode="udp" Description="Container Port: 7800" Type="Port" Display="always" Required="false" Mask="false">7800</Config>
+  <Config Name="UDPSteam" Target="27026" Default="" Mode="udp" Description="Container Port: 27026" Type="Port" Display="always" Required="false" Mask="false">27026</Config>
+  <Config Name="TCPRCON" Target="27046" Default="" Mode="tcp" Description="Container Port: 27046" Type="Port" Display="always" Required="false" Mask="false">27046</Config>
+  <Config Name="Saved" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="segregated space for saving arks and map specific config inis" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se/ARK12-Fjordur</Config>
   <Config Name="UID" Target="UID" Default="" Mode="" Description="Container Variable: UID" Type="Variable" Display="advanced-hide" Required="true" Mask="false">99</Config>
   <Config Name="GID" Target="GID" Default="" Mode="" Description="Container Variable: GID" Type="Variable" Display="advanced-hide" Required="true" Mask="false">100</Config>
-  <Config Name="GAME_ID" Target="GAME_ID" Default="" Mode="" Description="The GAME_ID that the container download at startup.&#13;&#10;(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)" Type="Variable" Display="advanced-hide" Required="true" Mask="false">376030</Config>
 </Container>

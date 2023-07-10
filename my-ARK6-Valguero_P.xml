@@ -122,11 +122,6 @@ You can also run multiple servers with only one SteamCMD directory!</Description
       <Mode/>
     </Variable>
     <Variable>
-      <Value>YourCluster</Value>
-      <Name>CLUSTERID</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
       <Value>99</Value>
       <Name>UID</Name>
       <Mode/>

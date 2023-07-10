@@ -60,12 +60,12 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>27025,27026,27027,27028,27029,27030,27031,27032,27033,27034</Value>
+      <Value>27035,27036,27037,27038,27039,27040,27041,27042,27043,27044,27045,27046</Value>
       <Name>MCRCON_PORTS</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>ARK1-TheIsland,ARK2-ScorchedEarth_P,ARK3-Aberration_P,ARK4-TheCenter,ARK5-Ragnarok,ARK6-Valguero_P,ARK7-CrystalIsles,ARK8-Extinction,ARK9-Genesis,ARK10-Genesis2</Value>
+      <Value>ARK1-TheIsland,ARK2-ScorchedEarth_P,ARK3-Aberration_P,ARK4-TheCenter,ARK5-Ragnarok,ARK6-Valguero_P,ARK7-CrystalIsles,ARK8-Extinction,ARK9-Genesis,ARK10-Genesis2,ARK11-LostIsland,ARK12-Fjordur</Value>
       <Name>CONTAINER_NAMES</Name>
       <Mode/>
     </Variable>

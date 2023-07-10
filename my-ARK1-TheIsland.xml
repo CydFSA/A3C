@@ -52,8 +52,8 @@ You can also run multiple servers with only one SteamCMD directory!</Description
         <Protocol>udp</Protocol>
       </Port>
       <Port>
-        <HostPort>27025</HostPort>
-        <ContainerPort>27025</ContainerPort>
+        <HostPort>27035</HostPort>
+        <ContainerPort>27035</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
@@ -132,7 +132,7 @@ You can also run multiple servers with only one SteamCMD directory!</Description
       <Mode/>
     </Variable>
     <Variable>
-      <Value>?Port=7777?QueryPort=27015?MaxPlayers=10?RCONEnabled=True?RCONPort=27025?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Value>
+      <Value>?Port=7777?QueryPort=27015?MaxPlayers=10?RCONEnabled=True?RCONPort=27035?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Value>
       <Name>GAME_PARAMS</Name>
       <Mode/>
     </Variable>
@@ -162,12 +162,12 @@ You can also run multiple servers with only one SteamCMD directory!</Description
   <Config Name="UDP 1" Target="7777" Default="" Mode="udp" Description="UDP Gameport (if you need another port, please delete this entry and create a new UDP Port with the required port number, also don't forget to click an 'Show more settings ...' and change the port number" Type="Port" Display="always" Required="false" Mask="false">7777</Config>
   <Config Name="UDP 2" Target="7778" Default="" Mode="udp" Description="Container Port: 7778" Type="Port" Display="always" Required="false" Mask="false">7778</Config>
   <Config Name="UDP Steam" Target="27015" Default="" Mode="udp" Description="Container Port: 27015" Type="Port" Display="always" Required="false" Mask="false">27015</Config>
-  <Config Name="RCON TCP" Target="27025" Default="" Mode="tcp" Description="Container Port: 27025" Type="Port" Display="always" Required="false" Mask="false">27025</Config>
+  <Config Name="RCON TCP" Target="27035" Default="" Mode="tcp" Description="Container Port: 27035" Type="Port" Display="always" Required="false" Mask="false">27035</Config>
   <Config Name="Map" Target="MAP" Default="TheIsland" Mode="" Description="Container Variable: MAP" Type="Variable" Display="always-hide" Required="true" Mask="false">TheIsland</Config>
   <Config Name="Server Name" Target="SERVER_NAME" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">Your-TheIsland</Config>
   <Config Name="Server Password" Target="SRV_PWD" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false"/>
   <Config Name="Server Admin Password" Target="SRV_ADMIN_PWD" Default="" Mode="" Description="Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)" Type="Variable" Display="always-hide" Required="false" Mask="false">NotMyPassword</Config>
-  <Config Name="Game Parameters" Target="GAME_PARAMS" Default="" Mode="" Description="Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)" Type="Variable" Display="always-hide" Required="false" Mask="false">?Port=7777?QueryPort=27015?MaxPlayers=10?RCONEnabled=True?RCONPort=27025?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Config>
+  <Config Name="Game Parameters" Target="GAME_PARAMS" Default="" Mode="" Description="Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)" Type="Variable" Display="always-hide" Required="false" Mask="false">?Port=7777?QueryPort=27015?MaxPlayers=10?RCONEnabled=True?RCONPort=27035?customdynamicconfigurl="http://172.17.0.2/dynamicconfig.ini"</Config>
   <Config Name="Extra Game Parameters" Target="GAME_PARAMS_EXTRA" Default="" Mode="" Description="Type in your Extra Game Parameters seperated with a space and - (eg: -DisableDeathSpectator -UseBattlEye)" Type="Variable" Display="always-hide" Required="true" Mask="false">-server -log -automanagedmods -clusterid=YourCluster -ClusterDirOverride=/serverdata/serverfiles/clusterfiles -UseDynamicConfig</Config>
   <Config Name="Saved" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="container Path: /serverdata/serverfiles/ShooterGame/Saved a segregated space for saving arks and map specific config inis" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se/ARK1-TheIsland</Config>
   <Config Name="steamapps" Target="/serverdata/Steam/steamapps" Default="" Mode="rw" Description="mapping for workshop files to host steamcmd folder" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/steamcmd/steamapps</Config>

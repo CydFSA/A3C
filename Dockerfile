@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     python3-pip \
     cron \
     nano
-
+RUN pip3 install requests==2.28.1
 WORKDIR /
 
 ADD requirements.txt /requirements.txt

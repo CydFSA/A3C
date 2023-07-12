@@ -9,18 +9,22 @@ cp /opt/scripts/steam.crontab /serverdata/serverfiles/dynamicconfig/steam.cronta
 fi
 FILE=/serverdata/serverfiles/dynamicconfig/ARK-list.txt
 if [ ! -f $FILE ];then
-	IFS=',' read -ra ADDR <<< "$CONTAINER_NAMES"
-	for i in "${ADDR[@]}"; do
-		echo $i >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
-	done
-	echo "dynamicconfig" >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
-else
-        echo -n > /serverdata/serverfiles/dynamicconfig/ARK-list.txt
         IFS=',' read -ra ADDR <<< "$CONTAINER_NAMES"
         for i in "${ADDR[@]}"; do
                 echo $i >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
         done
+        echo "dynamicconfig" >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
+else
+        IFS=',' read -ra ADDR <<< "$CONTAINER_NAMES"
+        IFS=$'\n' read -d '' -ra ARKLIST < /serverdata/serverfiles/dynamicconfig/ARK-list.txt
+
+        if [[ "${ADDR[@]} dynamicconfig" != "${ARKLIST[@]}" ]]; then
+        echo -n > /serverdata/serverfiles/dynamicconfig/ARK-list.txt
+        for i in "${ADDR[@]}"; do
+                echo $i >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
+        done
         echo  "dynamicconfig" >> /serverdata/serverfiles/dynamicconfig/ARK-list.txt
+        fi
 fi
 FILE=/serverdata/serverfiles/dynamicconfig/BackupARK.sh
 if [ ! -f $FILE ];then

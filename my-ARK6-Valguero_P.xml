@@ -43,7 +43,7 @@ You can also run multiple servers with only one SteamCMD directory!</Overview>
   <Config Name="UDP 2" Target="7788" Default="" Mode="udp" Description="" Type="Port" Display="always" Required="false" Mask="false">7788</Config>
   <Config Name="UDPSteam" Target="27020" Default="" Mode="udp" Description="" Type="Port" Display="always" Required="false" Mask="false">27020</Config>
   <Config Name="TCPRCON" Target="27040" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">27040</Config>
-  <Config Name="Saved" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se/ARK6-Valguero_P</Config>
+  <Config Name="Saved" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="segregated space for saving arks and map specific config inis" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se/ARK6-Valguero_P</Config>
   <Config Name="UID" Target="UID" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="true" Mask="false">99</Config>
   <Config Name="GID" Target="GID" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="true" Mask="false">100</Config>
 </Container>

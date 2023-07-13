@@ -14,74 +14,19 @@
   <WebUI/>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/arkse.png</Icon>
-  <ExtraParams/>
+  <ExtraParams>--log-driver syslog --log-opt syslog-address=udp://127.0.0.1:541</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1613445137</DateInstalled>
+  <DateInstalled>1689248289</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description/>
-  <Networking>
-    <Mode>bridge</Mode>
-    <Publish>
-      <Port>
-        <HostPort>8080</HostPort>
-        <ContainerPort>80</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
-  <Data>
-    <Volume>
-      <HostDir>/mnt/cache/appdata/ark-se</HostDir>
-      <ContainerDir>/serverdata/serverfiles</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir>/var/run/docker.sock</HostDir>
-      <ContainerDir>/var/run/docker.sock</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir>/mnt/user/backup</HostDir>
-      <ContainerDir>/serverdata/backup</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-  </Data>
-  <Environment>
-    <Variable>
-      <Value>YourHostIP</Value>
-      <Name>MCRCON_HOST</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>NotMyPassword</Value>
-      <Name>MCRCON_PASS</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>27035,27036,27037,27038,27039,27040,27041,27042,27043,27044,27045,27046</Value>
-      <Name>MCRCON_PORTS</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>ARK1-TheIsland,ARK2-ScorchedEarth_P,ARK3-Aberration_P,ARK4-TheCenter,ARK5-Ragnarok,ARK6-Valguero_P,ARK7-CrystalIsles,ARK8-Extinction,ARK9-Genesis,ARK10-Genesis2,ARK11-LostIsland,ARK12-Fjordur</Value>
-      <Name>CONTAINER_NAMES</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>10</Value>
-      <Name>BACKUP_DAYS</Name>
-      <Mode/>
-    </Variable>
-  </Environment>
-  <Labels/>
+  <Requires/>
   <Config Name="ServerFiles" Target="/serverdata/serverfiles" Default="" Mode="rw" Description="Container Path: /serverdata/serverfiles" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ark-se</Config>
   <Config Name="Docker Socket" Target="/var/run/docker.sock" Default="" Mode="rw" Description="Container Path: /var/run/docker.sock" Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
   <Config Name="RCON Host" Target="MCRCON_HOST" Default="" Mode="" Description="Container Variable: MCRCON_HOST" Type="Variable" Display="always" Required="false" Mask="false">YourHostIP</Config>
   <Config Name="Server Password" Target="MCRCON_PASS" Default="" Mode="" Description="Container Variable: MCRCON_PASS" Type="Variable" Display="always" Required="false" Mask="false">NotMyPassword</Config>
-  <Config Name="RCON ports" Target="MCRCON_PORTS" Default="" Mode="" Description="Container Variable: RCON_PORTS" Type="Variable" Display="always" Required="false" Mask="false">27025,27026,27027,27028,27029,27030,27031,27032,27033,27034</Config>
-  <Config Name="Container Names" Target="CONTAINER_NAMES" Default="" Mode="" Description="Container Variable: CONTAINER_NAMES This is also the value(s) that are used to pick directories for backup" Type="Variable" Display="always" Required="false" Mask="false">ARK1-TheIsland,ARK2-ScorchedEarth_P,ARK3-Aberration_P,ARK4-TheCenter,ARK5-Ragnarok,ARK6-Valguero_P,ARK7-CrystalIsles,ARK8-Extinction,ARK9-Genesis,ARK10-Genesis2</Config>
+  <Config Name="RCON ports" Target="MCRCON_PORTS" Default="" Mode="" Description="Container Variable: RCON_PORTS" Type="Variable" Display="always" Required="false" Mask="false">27035,27036,27037,27038,27039,27040,27041,27042,27043,27044,27045,27046</Config>
+  <Config Name="Container Names" Target="CONTAINER_NAMES" Default="" Mode="" Description="Container Variable: CONTAINER_NAMES This is also the value(s) that are used to pick directories for backup" Type="Variable" Display="always" Required="false" Mask="false">ARK1-TheIsland,ARK2-ScorchedEarth_P,ARK3-Aberration_P,ARK4-TheCenter,ARK5-Ragnarok,ARK6-Valguero_P,ARK7-CrystalIsles,ARK8-Extinction,ARK9-Genesis,ARK10-Genesis2,ARK11-LostIsland,ARK12-Fjordur</Config>
   <Config Name="DCP" Target="80" Default="" Mode="tcp" Description="dynamic config port" Type="Port" Display="always" Required="false" Mask="false">8080</Config>
   <Config Name="DCFB" Target="/serverdata/backup" Default="" Mode="rw" Description="Where to put the backups" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/backup</Config>
   <Config Name="Backup Days" Target="BACKUP_DAYS" Default="" Mode="" Description="Number of days to keep backups" Type="Variable" Display="always" Required="false" Mask="false">10</Config>

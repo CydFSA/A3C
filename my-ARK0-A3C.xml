@@ -14,7 +14,7 @@
   <WebUI/>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/ich777/docker-templates/master/ich777/images/arkse.png</Icon>
-  <ExtraParams/>
+  <ExtraParams>--log-driver syslog --log-opt syslog-address=udp://127.0.0.1:541</ExtraParams>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1613445137</DateInstalled>

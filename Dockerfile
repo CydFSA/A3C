@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     python3-pip \
     cron \
     nano
-
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 WORKDIR /
 
 ADD requirements.txt /requirements.txt

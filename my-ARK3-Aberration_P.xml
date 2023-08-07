@@ -43,7 +43,7 @@ You can also run multiple servers with only one SteamCMD directory!</Overview>
   <Config Name="UDP 2" Target="7782" Default="" Mode="udp" Description="" Type="Port" Display="always" Required="false" Mask="false">7782</Config>
   <Config Name="UDPSteam" Target="27017" Default="" Mode="udp" Description="" Type="Port" Display="always" Required="false" Mask="false">27017</Config>
   <Config Name="TCPRCON" Target="27037" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">27037</Config>
-  <Config Name="Saved" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="segregated space for saving arks and map specific config inis" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ark-se/ARK3-Aberration</Config>
+  <Config Name="Saved" Target="/serverdata/serverfiles/ShooterGame/Saved" Default="" Mode="rw" Description="segregated space for saving arks and map specific config inis" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ark-se/ARK3-Aberration_P</Config>
   <Config Name="UID" Target="UID" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="true" Mask="false">99</Config>
   <Config Name="GID" Target="GID" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="true" Mask="false">100</Config>
 </Container>

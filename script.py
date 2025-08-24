@@ -150,12 +150,18 @@ def get_mod_info(mod_ids):
 
 
 def server_ver_check():
-    with open('/serverdata/serverfiles/version.txt') as lfile:
-        lversion = lfile.read().strip()
-    with requests.get('http://arkdedicated.com/version') as rfile:
+    try:
+        with open('/serverdata/serverfiles/version.txt') as lfile:
+            lversion = lfile.read().strip()
+        rfile = requests.get('http://arkdedicated.com/version')
         rversion = rfile.text.strip()
-    print("local version:",lversion,"arkdedicated version:",rversion)
-    return StrictVersion(rversion) > StrictVersion(lversion)
+        print("local version:", lversion, "arkdedicated version:", rversion)
+        return StrictVersion(rversion) > StrictVersion(lversion)
+    except Exception:
+        lversion = 'unknown/360.1+'
+        rfile = requests.get('http://arkdedicated.com/version')
+        rversion = rfile.text.strip()
+        print("local version:", lversion, "arkdedicated version:", rversion)
 
 
 
@@ -175,7 +181,8 @@ while True:
             print('Server revision change, queueing update')
 
         modIds = [x.replace('/serverdata/serverfiles/ShooterGame/Content/Mods/', '').replace('.mod', '') for x in mod_files]
-        modIds.remove('111111111') # the default mod does not need to be queried and the result is missing info anyway
+        if '111111111' in modIds:
+            modIds.remove('111111111') # the default mod does not need to be queried and the result is missing info anyway
 
         print(f'Mod Ids to check: {modIds}')
 
